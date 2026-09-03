@@ -5,9 +5,9 @@ Website for Klinik Fenida. Monorepo with two apps:
 | Folder   | Stack                                      | Default port |
 | -------- | ------------------------------------------ | ------------ |
 | frontend | Next.js 16, React 19, Tailwind CSS 4, shadcn | 3000        |
-| backend  | Bun, Hono                                   | 3000        |
+| backend  | Bun, Hono                                   | 8080        |
 
-> Both apps default to port 3000. Run them on different ports (see below).
+> Frontend runs on 3000, backend on 8080.
 
 ## Prerequisites
 
@@ -34,11 +34,7 @@ bun install
 bun run dev
 ```
 
-Serves on <http://localhost:3000> by default — conflicts with the frontend. Run it on another port:
-
-```bash
-bun run dev -- --port 3001
-```
+Serves on <http://localhost:8080>.
 
 ## Available scripts
 
