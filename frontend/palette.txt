@@ -1,0 +1,30 @@
+/* Coolors Exported Palette - https://coolors.co/ffffff-8ab4f8-0f355c-46351d */
+
+- CSV
+
+ffffff,8ab4f8,0f355c,46351d
+
+- With #
+
+#ffffff, #8ab4f8, #0f355c, #46351d
+
+- Array
+
+["ffffff","8ab4f8","0f355c","46351d"]
+
+- Object
+
+{"White":"ffffff","Baby Blue Ice":"8ab4f8","Oxford Navy":"0f355c","Deep Walnut":"46351d"}
+
+- Extended Array
+
+[{"name":"White","hex":"ffffff","rgb":[255,255,255],"cmyk":[0,0,0,0],"hsb":[0,0,100],"hsl":[0,0,100],"lab":[100,0,0]},{"name":"Baby Blue Ice","hex":"8ab4f8","rgb":[138,180,248],"cmyk":[44,27,0,3],"hsb":[217,44,97],"hsl":[217,89,76],"lab":[73,3,-38]},{"name":"Oxford Navy","hex":"0f355c","rgb":[15,53,92],"cmyk":[84,42,0,64],"hsb":[210,84,36],"hsl":[210,72,21],"lab":[22,2,-27]},{"name":"Deep Walnut","hex":"46351d","rgb":[70,53,29],"cmyk":[0,24,59,73],"hsb":[35,59,27],"hsl":[35,41,19],"lab":[23,4,18]}]
+
+- XML
+
+<palette>
+  <color name="White" hex="ffffff" r="255" g="255" b="255" />
+  <color name="Baby Blue Ice" hex="8ab4f8" r="138" g="180" b="248" />
+  <color name="Oxford Navy" hex="0f355c" r="15" g="53" b="92" />
+  <color name="Deep Walnut" hex="46351d" r="70" g="53" b="29" />
+</palette>

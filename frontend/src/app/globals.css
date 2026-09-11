@@ -128,3 +128,16 @@
     @apply font-sans;
   }
 }
+
+/* 21st id 6553 Julien Thibeaut (ibelick) Light theme Background Snippet, pola asli dari repo publik
+   ibelick/background-snippets (BgLightGridGradient2 + BgLightGradient3),
+   tint disesuaikan ke palet user. Kode 21st limit harian, upgrade: https://21st.dev/pricing */
+body {
+  background-color: #ffffff;
+  background-image:
+    radial-gradient(100% 50% at 50% 0%, rgba(138, 180, 248, 0.16) 0, rgba(138, 180, 248, 0) 50%, rgba(138, 180, 248, 0) 100%),
+    linear-gradient(to right, #0f355c14 1px, transparent 1px),
+    linear-gradient(to bottom, #0f355c14 1px, transparent 1px);
+  background-size: auto, 14px 24px, 14px 24px;
+  background-attachment: fixed;
+}
