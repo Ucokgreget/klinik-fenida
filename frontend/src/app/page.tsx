@@ -28,8 +28,16 @@ function SiteHeader() {
 
   return (
     <header>
+      {menuState && (
+        <button
+          type="button"
+          aria-label="Tutup menu"
+          onClick={() => setMenuState(false)}
+          className="fixed inset-0 z-10 cursor-default bg-[#0f355c]/30 lg:hidden"
+        />
+      )}
       <nav
-        data-state={menuState && "active"}
+        data-state={menuState ? "active" : undefined}
         className="group fixed z-20 w-full px-2"
         aria-label="Navigasi utama"
       >
@@ -86,23 +94,21 @@ function SiteHeader() {
               </ul>
             </div>
 
-            <div className="mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-lg border border-[#0f355c]/10 bg-white p-6 shadow-2xl group-data-[state=active]:block md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-3 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none lg:group-data-[state=active]:flex">
-              <div className="lg:hidden">
-                <ul className="space-y-6 text-base">
-                  {menuItems.map((item) => (
-                    <li key={item.href}>
-                      <Link
-                        href={item.href}
-                        onClick={() => setMenuState(false)}
-                        className="block py-2 font-medium text-[#0f355c]/70 duration-150 hover:text-[#0f355c]"
-                      >
-                        <span>{item.name}</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="flex w-full flex-col space-y-3 sm:flex-row sm:items-center sm:gap-3 sm:space-y-0 md:w-fit">
+            <div className="fixed top-0 right-0 z-30 flex h-dvh w-[min(20rem,85vw)] translate-x-full flex-col gap-8 bg-white p-6 pt-20 shadow-2xl transition-transform duration-300 group-data-[state=active]:translate-x-0 lg:static lg:z-auto lg:flex lg:h-auto lg:w-fit lg:translate-x-0 lg:flex-row lg:items-center lg:gap-3 lg:bg-transparent lg:p-0 lg:pt-0 lg:shadow-none">
+              <ul className="space-y-2 lg:hidden">
+                {menuItems.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      onClick={() => setMenuState(false)}
+                      className="block rounded-lg px-3 py-3 text-base font-medium text-[#0f355c]/70 hover:bg-[#0f355c]/5 hover:text-[#0f355c]"
+                    >
+                      <span>{item.name}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <div className="flex flex-col gap-3 lg:flex-row lg:items-center">
                 <Link
                   href="/login"
                   onClick={() => setMenuState(false)}
