@@ -11,7 +11,7 @@ export default function Login() {
         ← Beranda
       </Link>
       <h1 className="mt-3 font-heading text-3xl font-bold tracking-tight">
-        Masuk petugas
+        Masuk
       </h1>
       <p className="mt-2 text-[15px] text-[#0f355c]/75">
         Form login peran Admin, Pegawai, Dokter menyusul di US-001.

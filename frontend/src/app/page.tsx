@@ -114,7 +114,7 @@ function SiteHeader() {
                   onClick={() => setMenuState(false)}
                   className="inline-flex min-h-11 items-center justify-center rounded-lg border border-[#0f355c]/25 bg-white px-5 text-sm font-semibold hover:bg-white/80"
                 >
-                  <span>Masuk petugas</span>
+                  <span>Masuk</span>
                 </Link>
                 <Link
                   href="/daftar"
