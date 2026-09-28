@@ -12,19 +12,117 @@ datasource db {
   provider = "postgresql"
 }
 
-model User {
-  id        String   @id @default(uuid())
-  name      String
-  email     String   @unique
-  password  String
-  role      Role
+model Admin {
+  id_admin Int @id  @default(autoincrement())
+  nama_admin String
+  username String
+  password String
 }
 
 model Pembayaran {
-  id            String   @id @default(uuid())
-  tanggal_bayar DateTime?
+  id_bayar      Int      @id @default(autoincrement())
+  id_periksa    Int
+  tanggal_bayar DateTime @db.Date
+  total_bayar   Int
+  metode_bayar  String
+  status_bayar  String
 
+  pemeriksaan Pemeriksaan @relation(
+    fields: [id_periksa],
+    references: [id_periksa]
+  )
+}
 
+model Pemeriksaan {
+  id_periksa    Int      @id @default(autoincrement())
+  id_daftar     Int
+  tanggal       DateTime @db.Date
+  diagnosa      String
+  tindakan      String
+  resep         String
+  status_periksa String
+
+  pendaftaran Pendaftaran @relation(
+    fields: [id_daftar],
+    references: [id_daftar]
+  )
+
+  pembayaran Pembayaran?
+}
+
+model Pasien {
+  id_pasien      Int    @id @default(autoincrement())
+  no_nik         String
+  nama           String
+  nama_keluarga  String
+  jenis_kelamin  String
+  tanggal_lahir  String
+  no_hp          String
+  alamat         String
+
+  pendaftaran Pendaftaran[]
+}
+
+model Antrian {
+  id_antrian     Int      @id @default(autoincrement())
+  nomor_antrian  Int
+  tanggal        DateTime @db.Date
+  waktu_daftar   Int
+  status_antrian String
+
+  pendaftaran Pendaftaran[]
+}
+
+model Pendaftaran {
+  id_daftar      Int      @id @default(autoincrement())
+  tanggal_daftar DateTime @db.Date
+  id_pasien      Int
+  id_dokter      Int
+  id_antrian     Int
+  keluhan        String
+  status         String
+
+  pasien  Pasien  @relation(
+    fields: [id_pasien],
+    references: [id_pasien]
+  )
+
+  dokter  Dokter  @relation(
+    fields: [id_dokter],
+    references: [id_dokter]
+  )
+
+  antrian Antrian @relation(
+    fields: [id_antrian],
+    references: [id_antrian]
+  )
+
+  pemeriksaan Pemeriksaan?
+}
+
+model JadwalDokter {
+  id_jadwal   Int    @id @default(autoincrement())
+  id_dokter   Int
+  nama_dokter String
+  hari        String
+  jam_mulai   Int
+  jam_selesai Int
+
+  dokter Dokter @relation(
+    fields: [id_dokter],
+    references: [id_dokter]
+  )
+}
+
+model Dokter {
+  id_dokter    Int     @id @default(autoincrement())
+  nama_dokter  String
+  spesialisasi String
+  no_hp        Decimal? @db.Decimal(19, 0)
+  tarif_dokter Int?
+
+  pendaftaran   Pendaftaran[]
+  jadwal_dokter JadwalDokter[]
 }
 
 enum Role {
